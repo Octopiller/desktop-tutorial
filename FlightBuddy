@@ -1,0 +1,33 @@
+print("########################################")
+print("#><><>< Welcome to Flight Buddy ><><><#")
+print("########################################")
+# The inputs
+maxWeight = float(input("Enter the maximum takeoff weight: "))
+people = int(input("Enter the number of personnel: "))
+luggage = float(input("Enter the weight of luggage in pounds: "))
+fuel = float(input("Enter the amount of fuel carried in gallons: "))
+
+#Calculations
+people = people * 185
+fuel = fuel*6
+
+# Display the header for the table
+print("%4s%10s%9s%6s" % \
+	("Max weight", "Personnel",
+	"Luggage", "Fuel"))
+
+# Compute and display the results for each year
+endBalance = fuel+people+luggage
+percentFull=endBalance/maxWeight
+diffBalance=maxWeight-endBalance
+	
+print("%4d%14.2f%9.2f%9.2f" % \
+	(maxWeight, people, luggage, fuel))
+	
+if endBalance < maxWeight:
+	# Display the totals for the period
+  print("%",(percentFull*100), "of maximum takeoff weight used")
+#print("%",(percentFull*100))
+print("You have :",(maxWeight-endBalance),"lbs left")
+if endBalance > maxWeight:
+  print("!!!!MAX WEIGHT EXCEEDED!!!!")
